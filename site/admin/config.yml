@@ -1,0 +1,21 @@
+backend:
+  branch: develop
+  name: github
+  repo: https://github.com/bever1337/plant-md.git
+local_backend:
+  url: http://localhost:3000/proxy/api/v1
+media_folder: "site"
+public_folder: "/"
+collections:
+  - name: "plants"
+    create: true
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Publish Date", name: "published", widget: "datetime" }
+      - { label: "Last Updated", name: "updated", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+    folder: "data/plants"
+    identifier_field: name
+    label: "Plants"
+    label_singular: "Plant"
+    slug: "{{slug}}"
