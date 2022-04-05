@@ -1,21 +1,130 @@
 backend:
-  branch: develop
-  name: github
-  repo: https://github.com/bever1337/plant-md.git
+  branch: "develop"
+  name: "github"
+  repo: "https://github.com/bever1337/plant-md.git"
 local_backend:
-  url: http://localhost:3000/proxy/api/v1
-media_folder: "site"
-public_folder: "/"
+  url: "http://localhost:8081/api/v1"
+media_folder: "site/assets"
+public_folder: "/assets"
 collections:
   - name: "plants"
     create: true
+    extension: "md"
     fields:
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Publish Date", name: "published", widget: "datetime" }
-      - { label: "Last Updated", name: "updated", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
-    folder: "data/plants"
-    identifier_field: name
+      - label: "Name"
+        name: "name"
+        widget: "string"
+      - label: "Last Updated"
+        name: "updated"
+        widget: "datetime"
+      - allow_add: true
+        name: "tags"
+        collapsed: false
+        default: ["plants"]
+        description: "Comma-separated tags"
+        label: "Tags"
+        minimize_collapsed: true
+        widget: "list"
+      - label: "Body"
+        default: |
+          # Corn Plant
+
+          Dracaena Fragrans
+
+          ![Hoya Carnosa illustration](/assets/dracaena_fragrans.jpg "Hoya Carnosa")
+
+          [[toc]]
+
+          ## 💡 Light
+
+          What intensity and duration?
+
+          ---
+
+          ## 🌊 Watering
+
+          How often? How much?
+
+          ---
+
+          ## 💩 Nutrients
+
+          Fertilizer type and schedule, pH, nutrients added to soil, nutrients removed from soil
+
+          ---
+
+          ## 🌍 Soil
+
+          Sand? Silt? Clay? Drainage?
+
+          ---
+
+          ## 🌱 Potting
+
+          How often should you repot? Root binding? Vining?
+
+          ---
+
+          ## ❄️ Hardiness
+
+          Hardiness zone, temperatures preferred, frost/drought tolerance
+
+          ---
+
+          ## 👶 Propagation
+
+          How are more made? From cutting? Seeds? Rhizome?
+
+          ---
+
+          ## 🌼 Blooming, Fruiting
+
+          How do you make it flower? Special plant food? Intense light? Only in the spring?
+
+          ---
+
+          ## 🐞 Diseases, Pests
+
+          Ex, Potato blight, aphids
+
+          ---
+
+        name: "body"
+        widget: "markdown"
+      - label: "Layout"
+        collection: "layouts"
+        default: "plant"
+        display_fields: ["name"]
+        name: "layout"
+        search_fields: ["name"]
+        value_field: "name"
+        widget: "relation"
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+    folder: "site/plants"
+    format: "yaml-frontmatter"
+    identifier_field: "name"
     label: "Plants"
     label_singular: "Plant"
+    slug: "{{slug}}"
+  - name: "layouts"
+    create: true
+    extension: "pug"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Last Updated", name: "updated", widget: "datetime" }
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          output_code_only: true,
+          default_language: "pug",
+        }
+    folder: "_includes"
+    format: "yaml-frontmatter"
+    identifier_field: "name"
+    label: "Layouts"
+    label_singular: "Layout"
     slug: "{{slug}}"

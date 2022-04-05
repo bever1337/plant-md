@@ -1,0 +1,7 @@
+img {
+  max-height: 80vh;
+  width: 100%;
+  min-height: 6em;
+  object-fit: contain;
+  object-position: center;
+}

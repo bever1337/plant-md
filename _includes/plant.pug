@@ -1,0 +1,22 @@
+---
+name: plant
+date: 2022-03-16T04:07:03.862Z
+updated: 2022-03-16T04:07:03.876Z
+---
+extends ../kennel/preamble.pug
+
+block head
+block main
+  nav
+    a(href="/") Home
+  style
+    include ./plant.css
+  .
+    !{content}
+block footer
+  p
+    a(href="/admin/#/collections/plants/entries/" + page.fileSlug) edit this page
+    <br />
+    span Published: #{new Date(date).toLocaleString()}
+    <br />
+    span Last updated: #{new Date(updated).toLocaleString()}

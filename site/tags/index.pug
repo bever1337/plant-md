@@ -1,0 +1,29 @@
+---
+pagination: 
+  data: collections
+  size: 1
+  alias: tag
+  filter: 
+    - all
+    - plants
+permalink: "| /tags/#{tag}/"
+---
+extends ../../kennel/preamble.pug
+
+block head
+block main
+  nav
+    a(href="/") Home
+  //- style
+  //-   include ./plant.css
+  //- .
+  //-   !{content}
+  section
+    h1 #{tag}
+    ul
+      each plant in collections[tag]
+        li
+          a(href=plant.data.page.url)
+            span #{plant.data.name}
+    a(href="/admin/#/collections/plants/new") New plant
+block footer

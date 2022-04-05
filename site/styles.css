@@ -1,0 +1,78 @@
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/OpenDyslexic-Regular.eot");
+  src: url("/fonts/OpenDyslexic-Regular?#iefix") format("embedded-opentype"),
+    url("/fonts/OpenDyslexic-Regular.woff") format("woff"),
+    url("/fonts/OpenDyslexic-Regular.ttf") format("truetype"),
+    url("/fonts/OpenDyslexic-Regular.svg#svgFontName") format("svg"),
+    url("/fonts/OpenDyslexic-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/OpenDyslexic-Italic.eot");
+  src: url("/fonts/OpenDyslexic-Italic?#iefix") format("embedded-opentype"),
+    url("/fonts/OpenDyslexic-Italic.woff") format("woff"),
+    url("/fonts/OpenDyslexic-Italic.ttf") format("truetype"),
+    url("/fonts/OpenDyslexic-Italic.svg#svgFontName") format("svg"),
+    url("/fonts/OpenDyslexic-Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/OpenDyslexic-Bold.eot");
+  src: url("/fonts/OpenDyslexic-Bold?#iefix") format("embedded-opentype"),
+    url("/fonts/OpenDyslexic-Bold.woff") format("woff"),
+    url("/fonts/OpenDyslexic-Bold.ttf") format("truetype"),
+    url("/fonts/OpenDyslexic-Bold.svg#svgFontName") format("svg"),
+    url("/fonts/OpenDyslexic-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/OpenDyslexic-BoldItalic.eot");
+  src: url("/fonts/OpenDyslexic-BoldItalic?#iefix") format("embedded-opentype"),
+    url("/fonts/OpenDyslexic-BoldItalic.woff") format("woff"),
+    url("/fonts/OpenDyslexic-BoldItalic.ttf") format("truetype"),
+    url("/fonts/OpenDyslexic-BoldItalic.svg#svgFontName") format("svg"),
+    url("/fonts/OpenDyslexic-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background-color: #d7ecd9;
+  font-family: "OpenDyslexic", Arial, sans-serif;
+  font-size: calc(1.2rem + 0.125vw);
+  padding: 1em;
+}
+
+/* main {} */
+
+section {
+  background-color: #f6f6eb;
+  margin: 1em auto;
+  max-width: 60em;
+  padding: 1em;
+}
+
+footer {
+  background-color: #f6f6eb;
+  padding: 1em;
+  margin: 1em auto 0 auto;
+  max-width: 60em;
+}
+
+footer:empty {
+  display: none;
+}

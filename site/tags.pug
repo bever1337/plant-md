@@ -1,5 +1,5 @@
 ---
-name: "Plants"
+name: "Tags"
 date: 2022-03-13T04:17:58.912Z
 updated: 2022-03-13T04:17:58.933Z
 tags: []
@@ -9,16 +9,10 @@ extends ../kennel/preamble.pug
 
 block head
 block main
+  nav
+    a(href="/") Home
   section
-    h1 My plants:
-    ul
-      each plant in collections.plants
-        li
-          a(href=plant.data.page.url)
-            span #{plant.data.name}
-    a(href="/admin/#/collections/plants/new") New plant
-  section
-    h2 Explore tags:
+    h1 Explore tags:
     ul
       each key in Object.keys(collections).filter((key) => !['all', 'plants'].includes(key))
         li

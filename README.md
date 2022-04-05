@@ -1,6 +1,6 @@
 # plant-md
 
-Zero dependency website built from pug
+Zero dependency website built with pug, md, other stuff, and 11ty
 
 ## Setup
 
@@ -9,7 +9,13 @@ Develop:
 ```bash
 $ npm install
 $ npx netlify-cms-proxy-server
-$ node toolchain/servers/dev.js
+$ npx @11ty/eleventy --passthroughall --watch
+```
+
+Build:
+
+```bash
+$ npx @11ty --passthroughall
 ```
 
 Demo URLs:
@@ -18,20 +24,3 @@ Demo URLs:
 - http://localhost:3000/admin - CMS panel
 - http://localhost:3000/plants - Index
 - http://localhost:3000/plants/hoya - Route ID
-
-Build:
-
-Site is built in place:
-
-```bash
-$ npm run pug -- ./site
-```
-
-## Develop
-
-- site folder: `*.pug` files are transpiled into `*.html` files in-place
-- data folder: `*.md` content is injected into `template.pug` and rendered on the fly
-
-## Todo
-
-- Add production build step to generate plant HTML
