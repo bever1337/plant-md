@@ -8,11 +8,24 @@ extends ../kennel/preamble.pug
 block head
 block main
   nav
-    a(href="/") Home
+    ol
+      li
+        a(href="/") Home
+      li
+        a(href="/plants/") My plants
+      li
+        span #{name}
   style
     include ./plant.css
-  .
+  section.
     !{content}
+  section
+    h2 Explore #{name} tags:
+    nav(class="tag__nav")
+      ul(class="tag__list")
+        each key in tags.filter((key) => !['all', 'plants'].includes(key)).sort((a, b) => a.localeCompare(b))
+          li(class="tag__list_item")
+            a(class="tag__anchor" href="/tags/" + key.toLowerCase()) ##{key}
 block footer
   p
     a(href="/admin/#/collections/plants/entries/" + page.fileSlug) edit this page

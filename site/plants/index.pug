@@ -1,0 +1,27 @@
+---
+name: "Plants"
+date: 2022-03-13T04:17:58.912Z
+updated: 2022-03-13T04:17:58.933Z
+tags: []
+---
+
+extends ../../kennel/preamble.pug
+
+block head
+block main
+  nav
+    ol
+      li
+        a(href="/") Home
+      li
+        span My plants
+  section
+    h1 My plants:
+    nav
+      ul
+        each plant in collections.plants
+          li
+            a(href=plant.data.page.url)
+              span #{plant.data.name}
+      a(href="/admin/#/collections/plants/new") New plant
+block footer

@@ -1,5 +1,5 @@
 ---
-name: "Plants"
+name: "Index"
 date: 2022-03-13T04:17:58.912Z
 updated: 2022-03-13T04:17:58.933Z
 tags: []
@@ -9,19 +9,26 @@ extends ../kennel/preamble.pug
 
 block head
 block main
+  nav
+    ol
+      li
+        span Home
+  - filters.log(collections.plants)
   section
     h1 My plants:
-    ul
-      each plant in collections.plants
-        li
-          a(href=plant.data.page.url)
-            span #{plant.data.name}
-    a(href="/admin/#/collections/plants/new") New plant
+    nav
+      ul
+        each plant in collections.plants
+          li
+            a(href=plant.data.page.url)
+              span #{plant.data.name}
+    nav
+      a(href="/admin/#/collections/plants/new") New plant
   section
     h2 Explore tags:
-    ul
-      each key in Object.keys(collections).filter((key) => !['all', 'plants'].includes(key))
-        li
-          a(href="/tags/" + key.toLowerCase())
-            span #{key}
+    nav(class="tag__nav")
+      ul(class="tag__list")
+        each key in Object.keys(collections).filter((key) => !['all', 'plants'].includes(key)).sort((a, b) => a.localeCompare(b))
+          li(class="tag__list_item")
+            a(class="tag__anchor" href="/tags/" + key.toLowerCase()) ##{key} (#{collections[key].length})
 block footer

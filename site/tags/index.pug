@@ -1,29 +1,25 @@
 ---
-pagination: 
-  data: collections
-  size: 1
-  alias: tag
-  filter: 
-    - all
-    - plants
-permalink: "| /tags/#{tag}/"
+name: "Tags"
+date: 2022-03-13T04:17:58.912Z
+updated: 2022-03-13T04:17:58.933Z
+tags: []
 ---
+
 extends ../../kennel/preamble.pug
 
 block head
 block main
   nav
-    a(href="/") Home
-  //- style
-  //-   include ./plant.css
-  //- .
-  //-   !{content}
+    ol
+      li
+        a(href="/") Home
+      li
+        span Explore tags
   section
-    h1 #{tag}
-    ul
-      each plant in collections[tag]
-        li
-          a(href=plant.data.page.url)
-            span #{plant.data.name}
-    a(href="/admin/#/collections/plants/new") New plant
+    h2 Explore tags:
+    nav(class="tag__nav")
+      ul(class="tag__list")
+        each key in Object.keys(collections).filter((key) => !['all', 'plants'].includes(key)).sort((a, b) => a.localeCompare(b))
+          li(class="tag__list_item")
+            a(class="tag__anchor" href="/tags/" + key.toLowerCase()) ##{key} (#{collections[key].length})
 block footer
